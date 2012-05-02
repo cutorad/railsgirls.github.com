@@ -193,3 +193,8 @@ footer a {
   padding: 20px 320px 20px 0;
   background: url(../images/guides-hero.png) right 80px no-repeat;
 }
+
+figure figcaption {
+    text-align: center;
+    font-style: italic;
+}

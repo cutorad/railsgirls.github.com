@@ -1,0 +1,34 @@
+---
+layout: default
+title: Getting to know the terminal
+permalink: terminal
+---
+
+# {{ page.title }}
+
+The terminal is an application for entering various commands in text-only mode.
+It is used for running scripts in programming languages like Ruby, installing
+all kinds of software for developers, inspecting application/system logs and
+errors, and more.
+
+<figure>
+  <figcaption>
+    Terminal on Mac OS X, showing a prompt, a simple command, and its output.
+  </figcaption>
+  <img src="/images/terminal.png" alt="Terminal on Mac OS X" />
+</figure>
+
+Concepts which this guide visits, in order of importance:
+
+* [Current directory](#current_directory)
+* [The shell](#the_shell)
+* [Unix commands](#unix_commands)
+* [Environment variables](#environment_variables)
+
+## Current directory
+
+## The shell
+
+## Unix commands
+
+## Environment variables
