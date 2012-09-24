@@ -32,3 +32,8 @@ Concepts which this guide visits, in order of importance:
 ## Unix commands
 
 ## Environment variables
+
+## specific
+- rails vs script/rails vs rake
+- rbenv
+- bundle exec
