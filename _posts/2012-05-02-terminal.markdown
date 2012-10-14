@@ -7,9 +7,9 @@ permalink: terminal
 # {{ page.title }}
 
 The terminal is an application for entering various commands in text-only mode.
-It is used for running scripts in programming languages like Ruby, installing
-all kinds of software for developers, inspecting application/system logs and
-errors, and more.
+It is used for running scripts in programming languages such as Ruby, installing
+software for development, inspecting application/system logs and errors, and
+more.
 
 <figure>
   <figcaption>
@@ -18,20 +18,105 @@ errors, and more.
   <img src="/images/terminal.png" alt="Terminal on Mac OS X" />
 </figure>
 
-Concepts which this guide visits, in order of importance:
+Terminal is sometimes also referred to as:
+<i>command-line</i>,
+<i>command prompt</i>,
+<i>console</i>, or
+<i>shell</i>.
 
-* [Current directory](#current_directory)
-* [The shell](#the_shell)
-* [Unix commands](#unix_commands)
-* [Environment variables](#environment_variables)
+## Basics
 
-## Current directory
+### Opening the terminal application
 
-## The shell
+Every system ships with some kind of terminal application:
+
+* **Windows**: Use the "Start" menu to launch "Command Prompt", or pick "Run…" and
+  enter `cmd`
+* **Mac OS X**: Use Spotlight to search for and launch "Terminal"
+* **Linux**: TODO
+
+### The prompt
+
+The line on which you can enter commands is called the _prompt_. It usually ends
+with a dollar sign (`$`) and has a blinking caret. Depending on your
+configuration, the prompt may also display additional information; such as
+computer name and the current directory.
+
+The command that you run may produce text output, and the prompt reappears after
+it has finished.  You are then able to enter the next command.
+
+<div class="alert">
+  Sometimes the prompt takes a while to reappear, and that just means that the
+  command is still running or that this is a kind of program that never quits by
+  itself. If you wish to terminate a long-running program, use <kbd>Ctrl-C</kbd>.
+</div>
+
+### Current directory
+
+Every command that you run is in the context of the current directory. For some
+commands—especially in Ruby on Rails—it's important to be in the right directory
+before calling a command.
+
+* `pwd` ("print working directory") - See the whole path of current directory.
+* `ls` ("list") - List files in current directory.
+* `cd DIR` ("change directory") - Change to the directory which you specify in
+  place of "DIR". If you just type `cd`, it jumps to your home directory. Using
+  `cd ..` (two dots) will change to the parent directory.
+
+When a terminal starts, the default directory will usually be your "home"
+directory, which is `/home/USERNAME/` on Linux and `/Users/USERNAME/` on Mac OS
+X, where "USERNAME" is the name of the user you are logged into the system as.
+In the shell, your home directory can be abbreviated as `~`. So, to change
+directory to `/home/USERNAME/Projects/myapp` you can just write
+`~/Projects/myapp`.
+
+When running Rails commands for an existing application, you should be in that
+application's project directory. This is the directory that holds `app/`,
+`config/` and other directories, and is commonly referred to as "project root".
+
+<div class="alert alert-info">
+  If you have multiple terminal windows or tabs open, each of them has their own
+  current directory; changing the directory in one tab will not affect the other.
+</div>
+
+### The shell
+
+Inside each terminal window or tab runs a program called the _shell_. The shell
+is in charge of accepting your commands when you press <kbd>Enter</kbd>,
+processing them if necessary (e.g. expanding the `~` character to the full
+home path), and running them.
+
+The default shell type on most systems is "bash". Although there exist different
+shell types, they all support the same basic usage described in this guide.
+
+### Environment variables
+
+Environment variables are settings with which you can affect some features of
+the shell and some of the commands you run. You can inspect them with `echo
+$NAME`, where "NAME" is the name of an environment variable. Some common
+environment variables are:
+
+* PATH - list of directories on your system in which to search for commands
+* HOME - path to your home directory
+* EDITOR - specifies the default text editor command when opening files
+* RAILS_ENV - specifies the application environment mode in which to run, e.g.
+  "test" or "production" (Ruby on Rails only)
+
+There are multiple ways to set an environment variable:
+
+* **per-command**: `RAILS_ENV=test command...` - The environment variable will
+  only have this value for the duration of the command, and not for any
+  subsequent commands.
+* **per-shell session**: `export EDITOR=vim` - This value only persists in this
+  shell session and will be reset when you close the window or tab.
+* **permanent**: adding a `export EDITOR=vim` line to the `~/.bashrc` file
+  (creating it if missing) - This value will get initialized with every new
+  shell session; perfect for configuration that needs to stick around, such as
+  adding custom directories to PATH:
+
+        export PATH=~/bin:"$PATH"
 
 ## Unix commands
-
-## Environment variables
 
 ## specific
 - rails vs script/rails vs rake
